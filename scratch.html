@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Cozy Corner – Clementine Nielsen</title>
+  <link rel="stylesheet" href="scratch.css"/>
+</head>
+<body>
+
+  <!-- Navigation back to professional pages -->
+  <nav id="top">
+    <a href="index.html">← Back to Main Site</a>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>My Cozy Corner</h1>
+    <p class="tagline">Books, fresh air, and the simple things.</p>
+    <a href="#about" class="anchor-btn">Explore ↓</a>
+  </div>
+
+  <!-- On-page anchor target -->
+  <div id="about"></div>
+
+  <!-- About Section -->
+  <div class="section" id="section-about">
+    <h2>What This Space Is About</h2>
+    <p>
+      There's something magical about cracking open a book outside — the sun on the pages, 
+      a soft breeze, and nothing on the agenda. This page is a little corner of the internet 
+      dedicated to my two favorite things: getting lost in a great read and spending time 
+      outdoors. Whether it's a mountain trail or a blanket in the backyard, the best moments 
+      happen away from screens.
+    </p>
+  </div>
+
+  <!-- My Favorites Section with nested lists -->
+  <div class="section" id="section-favorites">
+    <h2>My Favorite Things</h2>
+    <p>Here's a peek into what I love most about books and the outdoors:</p>
+
+    <!-- Ordered list with embedded unordered lists (requirement) -->
+    <ol class="favorites-list">
+      <li>
+        <strong>Reading Spots</strong>
+        <ul>
+          <li>A hammock strung between two trees</li>
+          <li>A sunny patch of grass with a good blanket</li>
+          <li>Any porch with a view</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Favorite Book Genres</strong>
+        <ul>
+          <li>Literary fiction</li>
+          <li>Historical novels</li>
+          <li>Cozy mysteries</li>
+          <li>Nature writing & memoirs</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Outdoor Activities</strong>
+        <ul>
+          <li>Hiking mountain trails</li>
+          <li>Picnics in the park</li>
+          <li>Sunrise walks</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Reading Essentials</strong>
+        <ul>
+          <li>My Kindle Paperwhite</li>
+          <li>A cozy blanket</li>
+          <li>Good natural lighting</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <!-- Image Section -->
+  <div class="section" id="section-images">
+    <h2>The Vibe</h2>
+    <div class="image-grid">
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80" alt="Open book in nature"/>
+        <p class="img-caption">Lost in a good book</p>
+      </div>
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" alt="Sunlit forest trail"/>
+        <p class="img-caption">Trails that go forever</p>
+      </div>
+      <div class="img-card">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Mountain view outdoors"/>
+        <p class="img-caption">Where I recharge</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- YouTube Video Section -->
+  <div class="section" id="section-video">
+    <h2>A Cozy Read Outside</h2>
+    <p>This video perfectly captures the vibe I'm going for — a slow, peaceful day with a book and fresh air.</p>
+    <div class="video-wrapper">
+      <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/uQ-TWK1kW3c?si=CqYNVNbfLYSkg1yn" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Tableau Section -->
+  <div class="section" id="section-tableau">
+    <h2>Amazon Book Bestsellers (2009–2019)</h2>
+    <p>A decade of the most-read books — curious which ones you've checked off your list?</p>
+    <div class="tableau-wrapper">
+      <div class='tableauPlaceholder' id='viz1781680674961' style='position: relative'>
+        <noscript>
+          <a href='#'>
+            <img alt='Dashboard 1' src='https://public.tableau.com/static/images/Am/AmazonBookBestsellers2009-2019/Dashboard1/1_rss.png' style='border: none'/>
+          </a>
+        </noscript>
+        <object class='tableauViz' style='display:none;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='site_root' value='' />
+          <param name='name' value='AmazonBookBestsellers2009-2019/Dashboard1' />
+          <param name='tabs' value='no' />
+          <param name='toolbar' value='yes' />
+          <param name='static_image' value='https://public.tableau.com/static/images/Am/AmazonBookBestsellers2009-2019/Dashboard1/1.png' />
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='language' value='en-US' />
+        </object>
+      </div>
+      <script type='text/javascript'>
+        var divElement = document.getElementById('viz1781680674961');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width='100%';
+        vizElement.style.height='500px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      </script>
+    </div>
+  </div>
+
+  <!-- Link to Web App -->
+  <div class="section" id="section-app">
+    <h2>Find Your Reading Personality</h2>
+    <p>Not sure what kind of reader you are? Take my quick quiz to find out your cozy reading era!</p>
+    <a href="app.html" class="anchor-btn">Take the Quiz →</a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2026 Clementine Nielsen &nbsp;|&nbsp; <a href="index.html">Back to Main Site</a></p>
+  </div>
+
+</body>
+</html>
