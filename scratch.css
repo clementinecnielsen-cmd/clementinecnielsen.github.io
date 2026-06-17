@@ -1,0 +1,173 @@
+/* =====================
+   scratch.css – Clementine Nielsen
+   Custom stylesheet for scratch page
+   ===================== */
+
+/* Style 1: Body & background */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background-color: #f4f0e8;
+  color: #3b2f2f;
+}
+
+/* Style 2: Navigation */
+nav {
+  background-color: #5c7a5c;
+  padding: 12px 24px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Georgia', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Style 3: Hero section */
+.hero {
+  background-color: #d4e6c3;
+  background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 120px 20px;
+  color: #fff;
+  text-shadow: 1px 2px 6px rgba(0,0,0,0.5);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-family: 'Georgia', serif;
+  margin-bottom: 12px;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+/* Style 4: Anchor button */
+.anchor-btn {
+  display: inline-block;
+  background-color: #5c7a5c;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.anchor-btn:hover {
+  background-color: #3b5a3b;
+}
+
+/* Style 5: Content sections */
+.section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  border-bottom: 1px solid #d6cfc4;
+}
+
+.section h2 {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  color: #5c7a5c;
+  margin-bottom: 16px;
+}
+
+.section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #3b2f2f;
+}
+
+/* Style 6: Nested list styling */
+.favorites-list {
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #3b2f2f;
+}
+
+.favorites-list ul {
+  list-style-type: disc;
+  margin-top: 4px;
+  color: #5c6b5c;
+}
+
+/* Style 7: Image grid */
+.image-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.img-card {
+  flex: 1;
+  min-width: 220px;
+  text-align: center;
+}
+
+.img-card img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: 200px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.img-caption {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #7a6a5a;
+  margin-top: 8px;
+}
+
+/* Style 8: Video wrapper */
+.video-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.video-wrapper iframe {
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  max-width: 100%;
+}
+
+/* Style 9: Tableau wrapper */
+.tableau-wrapper {
+  margin-top: 24px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Style 10: Footer */
+.footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #5c7a5c;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #d4e6c3;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
