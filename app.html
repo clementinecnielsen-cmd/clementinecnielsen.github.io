@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>What's Your Reading Era?</title>
+  <style>
+    /* Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f4f0e8;
+      color: #3b2f2f;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Nav */
+    nav {
+      background-color: #5c7a5c;
+      padding: 12px 24px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    /* Hero */
+    .hero {
+      background-color: #d4e6c3;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      color: #3b5a3b;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #5c6b5c;
+      font-style: italic;
+    }
+
+    /* Quiz Container */
+    .quiz-container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 0 24px;
+      flex: 1;
+    }
+
+    /* Progress Bar */
+    .progress-bar-wrap {
+      background-color: #ddd;
+      border-radius: 20px;
+      height: 8px;
+      margin-bottom: 36px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      background-color: #5c7a5c;
+      height: 100%;
+      border-radius: 20px;
+      transition: width 0.4s ease;
+    }
+
+    /* Question Card */
+    .question-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .question-number {
+      font-size: 0.85rem;
+      color: #9a8a7a;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .question-text {
+      font-size: 1.4rem;
+      color: #3b2f2f;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    /* Answer Buttons */
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .answer-btn {
+      background-color: #f4f0e8;
+      border: 2px solid #d6cfc4;
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      color: #3b2f2f;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+    }
+
+    .answer-btn:hover {
+      background-color: #d4e6c3;
+      border-color: #5c7a5c;
+      color: #3b5a3b;
+    }
+
+    .answer-btn.selected {
+      background-color: #5c7a5c;
+      border-color: #5c7a5c;
+      color: #fff;
+    }
+
+    /* Next Button */
+    .next-btn {
+      display: block;
+      margin: 28px auto 0;
+      background-color: #5c7a5c;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 40px;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .next-btn.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .next-btn:hover { background-color: #3b5a3b; }
+
+    /* Result Card */
+    .result-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 50px 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      text-align: center;
+      display: none;
+    }
+
+    .result-emoji {
+      font-size: 4rem;
+      margin-bottom: 16px;
+    }
+
+    .result-title {
+      font-size: 2rem;
+      color: #3b5a3b;
+      margin-bottom: 16px;
+    }
+
+    .result-desc {
+      font-size: 1.05rem;
+      color: #5c6b5c;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    .result-books {
+      background-color: #f4f0e8;
+      border-radius: 12px;
+      padding: 20px 24px;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .result-books h3 {
+      font-size: 1rem;
+      color: #5c7a5c;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .result-books ul {
+      padding-left: 20px;
+      color: #3b2f2f;
+      line-height: 2;
+    }
+
+    .retake-btn {
+      background-color: #5c7a5c;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 40px;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .retake-btn:hover { background-color: #3b5a3b; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #5c7a5c;
+      color: #fff;
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #d4e6c3;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="scratch.html">← Back to My Cozy Corner</a>
+  </nav>
+
+  <div class="hero">
+    <h1>📖 What's Your Reading Era?</h1>
+    <p>Answer 5 questions to discover your cozy reader personality.</p>
+  </div>
+
+  <div class="quiz-container">
+
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
+    </div>
+
+    <!-- Question Card -->
+    <div class="question-card" id="questionCard">
+      <div class="question-number" id="questionNumber">Question 1 of 5</div>
+      <div class="question-text" id="questionText"></div>
+      <div class="answers" id="answersContainer"></div>
+      <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Next →</button>
+    </div>
+
+    <!-- Result Card -->
+    <div class="result-card" id="resultCard">
+      <div class="result-emoji" id="resultEmoji"></div>
+      <div class="result-title" id="resultTitle"></div>
+      <div class="result-desc" id="resultDesc"></div>
+      <div class="result-books">
+        <h3>Books You'll Love</h3>
+        <ul id="resultBooks"></ul>
+      </div>
+      <button class="retake-btn" onclick="restartQuiz()">Retake the Quiz</button>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Clementine Nielsen &nbsp;|&nbsp; <a href="index.html">Main Site</a></p>
+  </footer>
+
+  <script>
+    const questions = [
+      {
+        text: "Your perfect Saturday afternoon looks like...",
+        answers: [
+          { text: "Blanket on the grass, book in hand, nowhere to be", type: "outdoor" },
+          { text: "Curled up inside with rain on the window", type: "cozy" },
+          { text: "At a café, people-watching between chapters", type: "social" },
+          { text: "Hiking until golden hour, then reading by lantern light", type: "adventure" }
+        ]
+      },
+      {
+        text: "Which book cover catches your eye first?",
+        answers: [
+          { text: "Watercolor florals and soft pastel lettering", type: "cozy" },
+          { text: "A misty forest path disappearing into the unknown", type: "adventure" },
+          { text: "A worn, vintage cover with gilded edges", type: "classic" },
+          { text: "A sun-drenched meadow with a tiny figure reading alone", type: "outdoor" }
+        ]
+      },
+      {
+        text: "Your ideal reading snack is...",
+        answers: [
+          { text: "Fresh fruit and something light — I'm reading outside!", type: "outdoor" },
+          { text: "Whatever's nearby — I forgot to eat", type: "classic" },
+          { text: "A warm drink and something homemade", type: "cozy" },
+          { text: "Trail mix — I might be on an actual trail", type: "adventure" }
+        ]
+      },
+      {
+        text: "When a book ends, you...",
+        answers: [
+          { text: "Sit quietly and let it wash over you", type: "classic" },
+          { text: "Text someone immediately to talk about it", type: "social" },
+          { text: "Go for a walk to process your feelings", type: "outdoor" },
+          { text: "Start the next one within minutes", type: "adventure" }
+        ]
+      },
+      {
+        text: "Your reading playlist is...",
+        answers: [
+          { text: "Birds, wind, distant water — pure nature sounds", type: "outdoor" },
+          { text: "Soft instrumental or lo-fi beats", type: "cozy" },
+          { text: "Complete silence — nothing else exists", type: "classic" },
+          { text: "Upbeat folk or indie — keeps the energy going", type: "adventure" }
+        ]
+      }
+    ];
+
+    const results = {
+      outdoor: {
+        emoji: "🌿",
+        title: "The Sunshine Reader",
+        desc: "You believe books were made to be read outside. A patch of grass, a warm breeze, and a great story — that's your perfect world. You read slowly and intentionally, noticing the world around you as much as the pages in front of you.",
+        books: ["A Walk in the Woods – Bill Bryson", "The Hidden Life of Trees – Peter Wohlleben", "Braiding Sweetgrass – Robin Wall Kimmerer", "Wild – Cheryl Strayed"]
+      },
+      cozy: {
+        emoji: "🕯️",
+        title: "The Cozy Homebody",
+        desc: "Soft lighting, a warm blanket, and a story that wraps around you like a hug — that's your reading sweet spot. You're loyal to your favorite authors and you're not afraid to reread a beloved book on a rainy day.",
+        books: ["The House in the Cerulean Sea – TJ Klune", "Legends & Lattes – Travis Baldree", "Beach Read – Emily Henry", "The Midnight Library – Matt Haig"]
+      },
+      adventure: {
+        emoji: "🏔️",
+        title: "The Adventurous Bookworm",
+        desc: "You read the way you live — fast, curious, and always chasing what's next. You love books that take you somewhere completely new, and you're never without a current read (or three). Every trail leads to a story.",
+        books: ["Into the Wild – Jon Krakauer", "The Alchemist – Paulo Coelho", "The Hobbit – J.R.R. Tolkien", "Educated – Tara Westover"]
+      },
+      classic: {
+        emoji: "📚",
+        title: "The Literary Soul",
+        desc: "You read deeply and think even more deeply. You underline passages, dog-ear pages, and quote books in conversation without even realizing it. For you, reading isn't a hobby — it's how you make sense of the world.",
+        books: ["Pride and Prejudice – Jane Austen", "To Kill a Mockingbird – Harper Lee", "The Secret History – Donna Tartt", "A Little Life – Hanya Yanagihara"]
+      },
+      social: {
+        emoji: "☕",
+        title: "The Book Club Darling",
+        desc: "Reading is better shared. You love discovering what a story means to someone else, and your recommendations are always spot-on. You're the friend everyone texts when they need their next great read.",
+        books: ["The Seven Husbands of Evelyn Hugo – Taylor Jenkins Reid", "Daisy Jones & The Six – Taylor Jenkins Reid", "Normal People – Sally Rooney", "Hello Beautiful – Ann Napolitano"]
+      }
+    };
+
+    let currentQuestion = 0;
+    let scores = { outdoor: 0, cozy: 0, adventure: 0, classic: 0, social: 0 };
+    let selectedAnswer = null;
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      document.getElementById('questionNumber').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+      document.getElementById('questionText').textContent = q.text;
+      document.getElementById('progressBar').style.width = `${(currentQuestion / questions.length) * 100}%`;
+
+      const container = document.getElementById('answersContainer');
+      container.innerHTML = '';
+      selectedAnswer = null;
+      document.getElementById('nextBtn').classList.remove('active');
+
+      q.answers.forEach((answer, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.textContent = answer.text;
+        btn.onclick = () => selectAnswer(btn, answer.type);
+        container.appendChild(btn);
+      });
+
+      const nextBtn = document.getElementById('nextBtn');
+      nextBtn.textContent = currentQuestion === questions.length - 1 ? 'See My Result ✨' : 'Next →';
+    }
+
+    function selectAnswer(btn, type) {
+      document.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedAnswer = type;
+      document.getElementById('nextBtn').classList.add('active');
+    }
+
+    function nextQuestion() {
+      if (!selectedAnswer) return;
+      scores[selectedAnswer]++;
+      currentQuestion++;
+
+      if (currentQuestion >= questions.length) {
+        showResult();
+      } else {
+        loadQuestion();
+      }
+    }
+
+    function showResult() {
+      document.getElementById('progressBar').style.width = '100%';
+      document.getElementById('questionCard').style.display = 'none';
+
+      const topType = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+      const result = results[topType];
+
+      document.getElementById('resultEmoji').textContent = result.emoji;
+      document.getElementById('resultTitle').textContent = result.title;
+      document.getElementById('resultDesc').textContent = result.desc;
+
+      const booksList = document.getElementById('resultBooks');
+      booksList.innerHTML = '';
+      result.books.forEach(book => {
+        const li = document.createElement('li');
+        li.textContent = book;
+        booksList.appendChild(li);
+      });
+
+      document.getElementById('resultCard').style.display = 'block';
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      scores = { outdoor: 0, cozy: 0, adventure: 0, classic: 0, social: 0 };
+      selectedAnswer = null;
+      document.getElementById('resultCard').style.display = 'none';
+      document.getElementById('questionCard').style.display = 'block';
+      loadQuestion();
+    }
+
+    // Start the quiz
+    loadQuestion();
+  </script>
+
+</body>
+</html>
