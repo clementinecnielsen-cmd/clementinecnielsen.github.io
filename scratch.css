@@ -1,108 +1,151 @@
 /* =====================
    scratch.css – Clementine Nielsen
-   Custom stylesheet for scratch page
+   Cozy Cheetah Theme
    ===================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap');
 
 /* Style 1: Body & background */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Georgia', serif;
-  background-color: #f4f0e8;
-  color: #3b2f2f;
+  font-family: 'Lato', sans-serif;
+  background-color: #f5efe6;
+  color: #2b1a0e;
 }
 
 /* Style 2: Navigation */
 nav {
-  background-color: #5c7a5c;
-  padding: 12px 24px;
+  background-color: #2b1a0e;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
 }
 
 nav a {
-  color: #fff;
+  color: #f5efe6;
   text-decoration: none;
-  font-family: 'Georgia', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 0.95rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #c8a96e;
 }
 
-/* Style 3: Hero section */
+/* Style 3: Hero with cheetah background pattern */
 .hero {
-  background-color: #d4e6c3;
-  background-image: url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?w=1400&q=80');
-  background-size: cover;
-  background-position: center;
+  background-color: #2b1a0e;
+  background-image:
+    radial-gradient(ellipse 8px 6px at 20% 25%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 5px 8px at 22% 30%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 9px 5px at 45% 15%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 6px 9px at 47% 22%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 7px 5px at 70% 30%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 5px 7px at 72% 38%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 8px 6px at 85% 18%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 6px 8px at 10% 60%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 9px 6px at 35% 70%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 5px 8px at 37% 78%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 8px 5px at 60% 65%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 6px 9px at 80% 72%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 7px 5px at 55% 48%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 5px 7px at 25% 48%, #1a0f07 60%, transparent 70%),
+    radial-gradient(ellipse 8px 6px at 92% 55%, #1a0f07 60%, transparent 70%);
+  background-size: 120px 120px;
+  background-color: #c8a96e;
   text-align: center;
-  padding: 120px 20px;
+  padding: 130px 20px;
   color: #fff;
-  text-shadow: 1px 2px 6px rgba(0,0,0,0.5);
+  text-shadow: 1px 2px 8px rgba(0,0,0,0.6);
 }
 
 .hero h1 {
-  font-size: 3.5rem;
-  font-family: 'Georgia', serif;
-  margin-bottom: 12px;
+  font-size: 4rem;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  margin-bottom: 14px;
+  color: #fff;
 }
 
 .tagline {
-  font-size: 1.3rem;
-  font-style: italic;
-  margin-bottom: 30px;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+  color: #f5efe6;
 }
 
 /* Style 4: Anchor button */
 .anchor-btn {
   display: inline-block;
-  background-color: #5c7a5c;
-  color: #fff;
-  padding: 12px 28px;
-  border-radius: 30px;
+  background-color: #2b1a0e;
+  color: #f5efe6;
+  padding: 14px 32px;
+  border-radius: 0px;
   text-decoration: none;
-  font-family: 'Georgia', serif;
-  font-size: 1rem;
-  transition: background-color 0.3s;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 2px solid #f5efe6;
+  transition: all 0.3s;
 }
 
 .anchor-btn:hover {
-  background-color: #3b5a3b;
+  background-color: #c8a96e;
+  border-color: #c8a96e;
+  color: #2b1a0e;
 }
 
 /* Style 5: Content sections */
 .section {
   max-width: 860px;
   margin: 0 auto;
-  padding: 60px 24px;
-  border-bottom: 1px solid #d6cfc4;
+  padding: 70px 24px;
+  border-bottom: 1px solid #e0d5c5;
 }
 
 .section h2 {
-  font-family: 'Georgia', serif;
-  font-size: 1.8rem;
-  color: #5c7a5c;
-  margin-bottom: 16px;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #2b1a0e;
+  margin-bottom: 20px;
+  font-style: italic;
 }
 
 .section p {
   font-size: 1.05rem;
-  line-height: 1.8;
-  color: #3b2f2f;
+  line-height: 1.9;
+  color: #4a3728;
+  font-weight: 300;
 }
 
 /* Style 6: Nested list styling */
 .favorites-list {
   font-size: 1.05rem;
-  line-height: 2;
-  color: #3b2f2f;
+  line-height: 2.2;
+  color: #2b1a0e;
+  font-weight: 300;
+}
+
+.favorites-list > li {
+  margin-bottom: 8px;
+}
+
+.favorites-list strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #2b1a0e;
 }
 
 .favorites-list ul {
   list-style-type: disc;
   margin-top: 4px;
-  color: #5c6b5c;
+  color: #7a5c3e;
+  padding-left: 24px;
 }
 
 /* Style 7: Image grid */
@@ -110,7 +153,7 @@ nav a:hover {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .img-card {
@@ -121,50 +164,62 @@ nav a:hover {
 
 .img-card img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 4px;
   object-fit: cover;
-  height: 200px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  height: 220px;
+  box-shadow: 4px 4px 0px #2b1a0e;
 }
 
 .img-caption {
   font-style: italic;
   font-size: 0.9rem;
-  color: #7a6a5a;
-  margin-top: 8px;
+  color: #7a5c3e;
+  margin-top: 10px;
+  font-family: 'Playfair Display', serif;
 }
 
 /* Style 8: Video wrapper */
 .video-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 24px;
+  margin-top: 28px;
 }
 
 .video-wrapper iframe {
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 4px 4px 0px #2b1a0e;
   max-width: 100%;
 }
 
 /* Style 9: Tableau wrapper */
 .tableau-wrapper {
-  margin-top: 24px;
+  margin-top: 28px;
+  border: 2px solid #2b1a0e;
+  border-radius: 4px;
   overflow: hidden;
-  border-radius: 12px;
+}
+
+/* Cheetah divider accent */
+.cheetah-divider {
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 8px;
+  color: #c8a96e;
+  padding: 20px 0 0;
 }
 
 /* Style 10: Footer */
 .footer {
   text-align: center;
-  padding: 30px;
-  background-color: #5c7a5c;
-  color: #fff;
+  padding: 36px;
+  background-color: #2b1a0e;
+  color: #f5efe6;
   font-size: 0.9rem;
+  letter-spacing: 1px;
 }
 
 .footer a {
-  color: #d4e6c3;
+  color: #c8a96e;
   text-decoration: none;
 }
 
